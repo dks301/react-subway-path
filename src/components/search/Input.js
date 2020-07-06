@@ -8,7 +8,7 @@ const Input = ({ value, onChange, type }) => {
         id={type.id}
         type="text"
         value={value}
-        onChange={(e) => onChange(e)}
+        onChange={onChange}
         placeholder={type.name}
       />
     </div>

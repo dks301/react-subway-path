@@ -6,11 +6,11 @@ import ResultPath from "./ResultPath";
 const Result = ({ pathStation }) => {
   const [selected, setSelected] = useState(PATH_TYPE.DISTANCE);
 
-  const onTypeChange = () => {
-    if (selected === PATH_TYPE.DISTANCE) {
+  const onTypeChange = (type) => {
+    if (selected === PATH_TYPE.DISTANCE && selected !== type) {
       setSelected(PATH_TYPE.DURATION);
     }
-    if (selected === PATH_TYPE.DURATION) {
+    if (selected === PATH_TYPE.DURATION && selected !== type) {
       setSelected(PATH_TYPE.DISTANCE);
     }
   };

@@ -3,7 +3,7 @@ import React from "react";
 const Tab = ({ type, onTypeChange, selected }) => {
   return (
     <li
-      id={type.id}
+      id={type.ID}
       className={`-mb-px w-2/4 ${
         type === selected ? "active-tab" : ""
       } tab-menu`}
@@ -13,7 +13,7 @@ const Tab = ({ type, onTypeChange, selected }) => {
         className="w-full text-center inline-block py-2 px-4 font-semibold"
         href="#"
       >
-        {type.ko}
+        {type.KO}
       </a>
     </li>
   );

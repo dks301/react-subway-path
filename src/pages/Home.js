@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = (props) => (
   <div className="text-center">
@@ -11,9 +12,9 @@ const Home = (props) => (
     </p>
     <ul className="text-blue-700">
       <li className="inline-block p-1">
-        <a href="search" className="underline">
+        <Link to="search" className="underline">
           경로 검색
-        </a>
+        </Link>
       </li>
     </ul>
   </div>

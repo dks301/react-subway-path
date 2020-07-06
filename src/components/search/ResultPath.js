@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const ResultPath = ({ stations, type }) => {
+const ResultPath = ({ source, target, type }) => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -10,7 +10,7 @@ const ResultPath = ({ stations, type }) => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `paths?source=${stations.source}&target=${stations.target}&type=${type.name}`
+          `/paths?source=${source}&target=${target}&type=${type.NAME}`
         );
         setResult(response.data);
       } catch (e) {
@@ -19,7 +19,7 @@ const ResultPath = ({ stations, type }) => {
       setLoading(false);
     };
     fetchData();
-  }, [stations, type]);
+  }, [source, target, type]);
 
   if (loading) {
     return <div>로딩중...</div>;

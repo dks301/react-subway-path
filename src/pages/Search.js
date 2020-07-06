@@ -1,20 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import "../assets/service/css/search.css";
 import Result from "../components/search/Result";
 import Form from "../components/search/Form";
 import { ERROR_MESSAGE } from "../utils/constants";
 
-const Search = (props) => {
-  const [pathStation, setPathStation] = useState(null);
+function reducer(state, action) {
+  return {
+    ...state,
+    [action.name]: action.value,
+  };
+}
 
-  const onSearchClick = (source, target) => {
+const Search = (props) => {
+  const [inputs, dispatch] = useReducer(reducer, {
+    source: "",
+    target: "",
+  });
+  const { source, target } = inputs;
+  const [click, setClick] = useState(false);
+
+  const onInputChange = (e) => {
+    dispatch(e.target);
+  };
+
+  const onSearchClick = () => {
+    setClick(isEmptyInput());
+  };
+
+  const isEmptyInput = () => {
     if (!source || !target || source.length < 1 || target.length < 1) {
-      return alert(ERROR_MESSAGE.NOT_EMPTY);
+      alert(ERROR_MESSAGE.NOT_EMPTY);
+      return false;
     }
-    setPathStation({
-      source,
-      target,
-    });
+    return true;
   };
 
   return (
@@ -23,8 +41,13 @@ const Search = (props) => {
         <div className="font-bold text-xl mb-4 text-center">
           지하철 경로 검색
         </div>
-        <Form onSearchClick={onSearchClick} />
-        {pathStation && <Result pathStation={pathStation} />}
+        <Form
+          source={source}
+          target={target}
+          onInputChange={onInputChange}
+          onSearchClick={onSearchClick}
+        />
+        {click && <Result source={source} target={target} />}
       </div>
     </>
   );

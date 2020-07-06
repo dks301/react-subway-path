@@ -3,7 +3,7 @@ import { PATH_TYPE } from "../../utils/constants";
 import Tab from "./Tab";
 import ResultPath from "./ResultPath";
 
-const Result = ({ pathStation }) => {
+const Result = ({ source, target }) => {
   const [selected, setSelected] = useState(PATH_TYPE.DISTANCE);
 
   const onTypeChange = (type) => {
@@ -36,7 +36,7 @@ const Result = ({ pathStation }) => {
           selected={selected}
         />
       </ul>
-      <ResultPath stations={pathStation} type={selected} />
+      <ResultPath source={source} target={target} type={selected} />
     </div>
   );
 };

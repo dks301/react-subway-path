@@ -10,24 +10,26 @@ export const ERROR_MESSAGE = {
 
 export const PATH_TYPE = {
   DISTANCE: {
-    id: "shortest-distance-tab",
-    name: "DISTANCE",
-    ko: "최단거리",
+    ID: "shortest-distance-tab",
+    NAME: "DISTANCE",
+    KO: "최단거리",
   },
   DURATION: {
-    id: "minimum-time-tab",
-    name: "DURATION",
-    ko: "최소시간",
+    ID: "minimum-time-tab",
+    NAME: "DURATION",
+    KO: "최소시간",
   },
 };
 
 export const STATION_TYPE = {
-  DEPATURE: {
-    id: "departure-station-name",
-    name: "출발역",
+  DEPARTURE: {
+    ID: "departure-station-name",
+    NAME: "source",
+    PLACEHOLDER: "출발역",
   },
   ALLIVAL: {
-    id: "arrival-station-name",
-    name: "도착역",
+    ID: "arrival-station-name",
+    NAME: "target",
+    PLACEHOLDER: "도착역",
   },
 };
